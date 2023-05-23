@@ -1,7 +1,7 @@
-from view import *
-from model import *
+import view
+import model 
 
-def controller():
+def start():
     while True:
         # В меню нужно вывести список команд "Выберите действия для телефонного справочника, 1 - найти контакт по фамилии, 
         # 2 - добавить контакт, 3 - удалить контакт, 4 - изменить контакт, 5 - посмотреть все контакты, 6 -выход из программы"
@@ -11,7 +11,7 @@ def controller():
         if users_choice == '1':                             # 1 - найти контакт по фамилии
             surname = input("Введите фамилию контакта: ") 
             contact = model.search_contact(surname)         # найти контакт
-            view.display_contact(surname,contact)           # сделать print фамилии контакта и его номера
+            view.display_contact(surname, contact)           # сделать print фамилии контакта и его номера
 
         elif users_choice == '2':                          # 2 - добавить контакт
             surname = input("Введите фамилию: ")

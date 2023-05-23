@@ -16,11 +16,9 @@ class PhoneBook:
                 if surname == name:
                     return phone_number
         return None
-
     def add_contact(self, name, phone_number):                       # Добавить контакт
         with open(self._filename, 'a', encoding='utf-8') as file:
             file.write(f"{name} {phone_number}\n")
-
     def delete_contact(self, name):                                  # Удалить контакт
         with open(self._filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()
@@ -29,7 +27,6 @@ class PhoneBook:
                 surname, _ = line.strip().split(' ')
                 if surname != name:
                     file.write(line)
-
     def change_contact(self, name, new_phone_number):                # Изменить контакт
         with open(self._filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()
@@ -40,7 +37,7 @@ class PhoneBook:
                     file.write(f"{surname} {new_phone_number}\n")
                 else:
                     file.write(line)
-
     def get_contacts(self):                                          # Посмотреть все контакты
         with open(self._filename, 'r', encoding='utf-8') as file:
             return file.read().strip().split('\n')
+    
